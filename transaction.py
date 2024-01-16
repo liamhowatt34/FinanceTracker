@@ -1,13 +1,5 @@
 # transaction.py
-NOT_AN_INT = -1
-
-
-def get_num(prompt):
-    try:
-        user_input = int(input(prompt))
-        return user_input
-    except ValueError:
-        return NOT_AN_INT
+from console import Console
 
 
 class Transaction:
@@ -17,4 +9,5 @@ class Transaction:
         self.date = date
 
     def get_transaction(self, description, amount, date) -> None:
-        pass
+        number_of_transactions = Console.get_num(
+            "Enter number of transactions to log: ")
