@@ -1,7 +1,10 @@
+# main.py
+from database import Database
+from transaction import Transaction
 
 
 def main() -> None:
-    pass
+    Database.create_database()
 
 
 if __name__ == "__main__":
