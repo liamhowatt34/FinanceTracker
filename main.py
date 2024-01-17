@@ -2,11 +2,11 @@
 from console import Console
 from database import Database
 
-
 ADD_TRANSACTION = 1
 DISPLAY_TRANSACTION_LIST = 2
 DELETE_TRANSACTION = 3
 EXIT = 4
+MENU_SIZE = 4
 
 
 def main() -> None:
@@ -17,10 +17,14 @@ def main() -> None:
         print("-----------------------\n")
 
         while taking_input:
+            Database.initialize_total()
+            print("\nTotal +/-: $", Database.TOTAL)
             print("\n")
             Console.display_menu()
             print("\n")
             user_choice = Console.get_num("Select an option: ")
+            if user_choice > MENU_SIZE:
+                print("Enter a valid menu option.")
 
             if user_choice == ADD_TRANSACTION:
                 Database.insert_transaction()

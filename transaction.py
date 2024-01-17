@@ -1,7 +1,6 @@
 # transaction.py
 import datetime
 from console import Console
-NOT_AN_INT = -1
 
 
 class Transaction:
@@ -16,4 +15,5 @@ class Transaction:
         amount = Console.get_num("Enter the transaction amount: ")
         current_datetime = datetime.datetime.now()
         formatted_string = current_datetime.strftime("%Y-%m-%d %H:%M:%S")
+
         return cls(description, amount, formatted_string)
