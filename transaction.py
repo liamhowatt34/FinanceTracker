@@ -10,18 +10,10 @@ class Transaction:
         self.amount = amount
         self.date = date
 
-    def get_transaction(self) -> None:
-        number_of_transactions = Console.get_num(
-            "Enter number of transactions to log: ")
-        if number_of_transactions == NOT_AN_INT:
-            return NOT_AN_INT
-
+    @classmethod
+    def get_transaction(cls) -> 'Transaction':
+        description = input("Enter the transaction description: ")
+        amount = Console.get_num("Enter the transaction amount: ")
         current_datetime = datetime.datetime.now()
         formatted_string = current_datetime.strftime("%Y-%m-%d %H:%M:%S")
-
-        for _ in range(0, number_of_transactions):
-            self.description = input("Enter the transaction description: ")
-            self.amount = Console.get_num("Enter the transaction amount: ")
-            self.date = formatted_string
-
-        return 0
+        return cls(description, amount, formatted_string)

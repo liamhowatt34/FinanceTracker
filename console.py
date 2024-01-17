@@ -11,6 +11,7 @@ class Console:
     def __init__(self) -> None:
         pass
 
+    @staticmethod
     def display_menu():
         options = {
             ADD_TRANSACTION: "Enter a new transaction(s).",
@@ -21,6 +22,7 @@ class Console:
         for key, value in options.items():
             print(f"{key}. {value}")
 
+    @staticmethod
     def get_num(prompt):
         try:
             user_input = int(input(prompt))
