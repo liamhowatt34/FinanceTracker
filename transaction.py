@@ -14,9 +14,14 @@ class Transaction:
         number_of_transactions = Console.get_num(
             "Enter number of transactions to log: ")
         if number_of_transactions == NOT_AN_INT:
-            pass
-            # handle error
+            return NOT_AN_INT
+
+        current_datetime = datetime.datetime.now()
+        formatted_string = current_datetime.strftime("%Y-%m-%d %H:%M:%S")
+
         for _ in range(0, number_of_transactions):
             self.description = input("Enter the transaction description: ")
             self.amount = Console.get_num("Enter the transaction amount: ")
-            self.date = datetime.datetime.now()
+            self.date = formatted_string
+
+        return 0

@@ -15,6 +15,7 @@ def main() -> None:
     taking_input = True
     print("FINANCE TRACKING APP")
     print("-----------------------\n")
+
     while taking_input:
         Console.display_menu()
         print("\n")
@@ -24,8 +25,7 @@ def main() -> None:
             Transaction.get_transaction()
 
         if user_choice == DISPLAY_TRANSACTION_LIST:
-            # handle this
-            pass
+            Database.display_transactions()
 
         if user_choice == DELETE_TRANSACTION:
             # handle this
