@@ -4,8 +4,7 @@ DISPLAY_TRANSACTION_LIST = 2
 DELETE_TRANSACTION = 3
 EXIT = 4
 MENU_SIZE = 4
-NUMBER_TOO_BIG = -1
-NOT_AN_INT = -2
+NOT_AN_INT = -1
 
 
 class Console:
@@ -25,8 +24,6 @@ class Console:
     def get_num(prompt):
         try:
             user_input = int(input(prompt))
-            if user_input > MENU_SIZE:
-                return NUMBER_TOO_BIG
             return user_input
         except ValueError:
             return NOT_AN_INT

@@ -1,5 +1,7 @@
 # transaction.py
+import datetime
 from console import Console
+NOT_AN_INT = -1
 
 
 class Transaction:
@@ -8,6 +10,13 @@ class Transaction:
         self.amount = amount
         self.date = date
 
-    def get_transaction(self, description, amount, date) -> None:
+    def get_transaction(self) -> None:
         number_of_transactions = Console.get_num(
             "Enter number of transactions to log: ")
+        if number_of_transactions == NOT_AN_INT:
+            pass
+            # handle error
+        for _ in range(0, number_of_transactions):
+            self.description = input("Enter the transaction description: ")
+            self.amount = Console.get_num("Enter the transaction amount: ")
+            self.date = datetime.datetime.now()
