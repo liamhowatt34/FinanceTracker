@@ -8,7 +8,7 @@ CURSOR = CONN.cursor()
 
 
 class Database:
-    TOTAL = 0  # Total amount
+    TOTAL = 0
 
     @classmethod
     def create_database(cls) -> None:
@@ -32,12 +32,13 @@ class Database:
     def display_transactions(cls) -> None:
         CURSOR.execute("SELECT * FROM finances")
         transactions = [
-            f"{row[0]}, {row[1]}, {row[2]}" for row in CURSOR.fetchall()]
+            f"Transaction: {row[0]}, ${row[1]}, {row[2]}" for row in CURSOR.fetchall()]
         CONN.commit()
 
         for transaction in transactions:
             print(transaction)
-        print("----------------------")
+        if (transactions):
+            print("-" * 50)
 
     @classmethod
     def insert_transaction(cls) -> None:

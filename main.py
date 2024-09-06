@@ -19,12 +19,15 @@ def main() -> None:
         while taking_input:
             Database.initialize_total()
             print("\nTotal +/-: $", Database.TOTAL)
+
             print("\n")
             Console.display_menu()
             print("\n")
+
             user_choice = Console.get_num("Select an option: ")
             if user_choice > MENU_SIZE:
                 print("Enter a valid menu option.")
+                continue
 
             if user_choice == ADD_TRANSACTION:
                 Database.insert_transaction()
